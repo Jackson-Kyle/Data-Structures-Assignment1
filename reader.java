@@ -21,9 +21,9 @@ public class reader
 
         try
         {
-//parsing a CSV file into BufferedReader class constructor
+
             BufferedReader br = new BufferedReader(new FileReader("src\\log-data.csv"));
-            while ((line = br.readLine()) != null)   //returns a Boolean value
+            while ((line = br.readLine()) != null)  
             {
                  String[] row = line.split(splitBy);
                  for(String index : row){
