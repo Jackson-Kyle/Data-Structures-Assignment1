@@ -21,9 +21,9 @@ public class reader
 
         try
         {
-
+//parsing a CSV file into BufferedReader class constructor
             BufferedReader br = new BufferedReader(new FileReader("src\\log-data.csv"));
-            while ((line = br.readLine()) != null)  
+            while ((line = br.readLine()) != null)   //returns a Boolean value
             {
                  String[] row = line.split(splitBy);
                  for(String index : row){
@@ -35,7 +35,7 @@ public class reader
                 String check = myQueue.dequeue();
                 if(check.charAt(22) == 'E'){
                     errorCount++;
-                    myStack.push(check.substring(28, check.length()));
+                    myStack.push(check);
                 }
                 else if(check.charAt(22) == 'W'){
                     warningCount++;
@@ -58,8 +58,10 @@ public class reader
         System.out.println("Warning Count:" + warningCount);
         System.out.println("Info Count:" + infoCount);
         System.out.println("Memory Warnings:" + memoryWarningCount);
+        System.out.println("Recent 100 Errors (printed in reverse order)");
         for(int i = 0; i < recentErrors.length; i++){
-            recentErrors[i] = myStack.pop();
+            System.out.println(myStack.pop());
         }
+
     }
 }
